@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Tic Tac Toe</string>
+
+    <string name="main_player_1_name">Player 1</string>
+    <string name="main_player_2_name">Player 2</string>
+    <string name="main_x">" X "</string>
+    <string name="main_o">" O "</string>
+    <string name="main_single_player">Single player</string>
+    <string name="main_two_player">Two player</string>
+    <string name="main_spinner_difficulty">difficulty</string>
+    <string name="main_start">start</string>
+    <string name="content_player_1">player 1</string>
+    <string name="content_player_2">player 2</string>
+    <string name="content_0">0</string>
+    <string name="content_1">1</string>
+    <string name="content_game">Game #</string>
+    <string name="dialog_text_hello">Hello</string>
+    <string name="dialog_text_reset">RESET</string>
+    <string name="dialog_text_play_again">PLAY AGAIN</string>
+    <string name="dialog_exit_text_do_you_want_to_exit">Do you want to exit?</string>
+    <string name="dialog_exit_text_no">NO</string>
+    <string name="dialog_exit_text_yes">YES</string>
+</resources>
