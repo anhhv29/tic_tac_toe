@@ -10,6 +10,14 @@ material = "1.13.0"
 activity = "1.12.2"
 constraintlayout = "2.2.1"
 
+google-services = "4.4.4"
+
+firebase-bom = "34.7.0"
+firebase-database = "22.0.1"
+firebase-analytics = "23.0.0"
+firebase-crashlytics = "20.0.3"
+firebase-crashlytics-gradle = "3.0.6"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -20,7 +28,13 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics", version.ref = "firebase-analytics" }
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics", version.ref = "firebase-crashlytics" }
+firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebase-database" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
+googleServices = { id = "com.google.gms.google-services", version.ref = "google-services" }
+firebaseCrashlyticsGradle = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics-gradle" }
