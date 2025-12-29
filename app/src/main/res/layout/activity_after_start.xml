@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".view.StartOfflineActivity">
+    tools:context=".view.offline.StartOfflineActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

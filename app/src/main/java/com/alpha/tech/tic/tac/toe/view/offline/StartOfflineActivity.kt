@@ -1,4 +1,4 @@
-package com.alpha.tech.tic.tac.toe.view
+package com.alpha.tech.tic.tac.toe.view.offline
 
 import android.app.Dialog
 import android.os.Bundle

@@ -22,4 +22,7 @@
     <string name="dialog_exit_text_yes">YES</string>
     <string name="game_menu_play_online">Play Online</string>
     <string name="game_menu_play_offline">play offline</string>
+    <string name="room_list_chon_ban">CHỌN BÀN</string>
+    <string name="item_room_ban_1">Bàn 1</string>
+    <string name="txt_0_2">0 / 2</string>
 </resources>

@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.alpha.tech.tic.tac.toe.base.BaseActivity
 import com.alpha.tech.tic.tac.toe.databinding.ActivityGameMenuBinding
+import com.alpha.tech.tic.tac.toe.view.offline.GameOfflineActivity
+import com.alpha.tech.tic.tac.toe.view.online.RoomListActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -45,7 +47,7 @@ class GameMenuActivity : BaseActivity() {
         showLoading()
         lifecycleScope.launch {
             delay(3000)
-            val intent = Intent(this@GameMenuActivity, GameOnlineActivity::class.java)
+            val intent = Intent(this@GameMenuActivity, RoomListActivity::class.java)
             startActivity(intent)
             finish()
         }

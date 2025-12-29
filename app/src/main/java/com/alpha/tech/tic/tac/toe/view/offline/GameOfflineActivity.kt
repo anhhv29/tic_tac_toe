@@ -1,4 +1,4 @@
-package com.alpha.tech.tic.tac.toe.view
+package com.alpha.tech.tic.tac.toe.view.offline
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -41,9 +41,6 @@ class GameOfflineActivity : BaseActivity() {
     private fun eventClick() {
         binding.btnStart.setOnClickListener {
             startGame()
-        }
-        binding.tvPlayOnline.setOnClickListener {
-            startGameOnline()
         }
     }
 
@@ -243,11 +240,6 @@ class GameOfflineActivity : BaseActivity() {
             putExtra("player1ax", player1ax)
             putExtra("selected_single_player", selectedSinglePlayer)
         }
-        startActivity(intent)
-    }
-
-    fun startGameOnline() {
-        val intent = Intent(this, GameOnlineActivity::class.java)
         startActivity(intent)
     }
 }

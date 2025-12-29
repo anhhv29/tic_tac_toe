@@ -1,6 +1,6 @@
-package com.alpha.tech.tic.tac.toe.view
+package com.alpha.tech.tic.tac.toe.view.offline
 
-/* =================== GAME ENGINE =================== */
+import com.alpha.tech.tic.tac.toe.view.offline.StartOfflineActivity
 
 class TicTacToeEngine {
     val board = Array(3) { Array(3) { StartOfflineActivity.Cell.EMPTY } }

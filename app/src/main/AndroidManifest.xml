@@ -11,13 +11,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name=".view.GameOfflineActivity"
+            android:name=".view.online.StartOnlineActivity"
             android:exported="false" />
         <activity
-            android:name=".view.StartOfflineActivity"
+            android:name=".view.online.ReadyActivity"
             android:exported="false" />
         <activity
-            android:name=".view.GameOnlineActivity"
+            android:name=".view.online.RoomListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.offline.GameOfflineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.offline.StartOfflineActivity"
             android:exported="false" />
         <activity
             android:name=".view.GameMenuActivity"
