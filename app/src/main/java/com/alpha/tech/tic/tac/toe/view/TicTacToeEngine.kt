@@ -3,31 +3,31 @@ package com.alpha.tech.tic.tac.toe.view
 /* =================== GAME ENGINE =================== */
 
 class TicTacToeEngine {
-    val board = Array(3) { Array(3) { AfterStartActivity.Cell.EMPTY } }
-    var winner: AfterStartActivity.Cell = AfterStartActivity.Cell.EMPTY
+    val board = Array(3) { Array(3) { StartOfflineActivity.Cell.EMPTY } }
+    var winner: StartOfflineActivity.Cell = StartOfflineActivity.Cell.EMPTY
 
-    fun makeMove(x: Int, y: Int, player: AfterStartActivity.Cell): Boolean {
-        if (board[x][y] != AfterStartActivity.Cell.EMPTY) return false
+    fun makeMove(x: Int, y: Int, player: StartOfflineActivity.Cell): Boolean {
+        if (board[x][y] != StartOfflineActivity.Cell.EMPTY) return false
         board[x][y] = player
-        winner = checkWinner(board) ?: AfterStartActivity.Cell.EMPTY
+        winner = checkWinner(board) ?: StartOfflineActivity.Cell.EMPTY
         return true
     }
 
-    fun checkWinner(boardState: Array<Array<AfterStartActivity.Cell>> = board): AfterStartActivity.Cell? {
+    fun checkWinner(boardState: Array<Array<StartOfflineActivity.Cell>> = board): StartOfflineActivity.Cell? {
         for (i in 0..2) {
-            if (boardState[i][0] != AfterStartActivity.Cell.EMPTY &&
+            if (boardState[i][0] != StartOfflineActivity.Cell.EMPTY &&
                 boardState[i][0] == boardState[i][1] && boardState[i][1] == boardState[i][2]
             ) return boardState[i][0]
 
-            if (boardState[0][i] != AfterStartActivity.Cell.EMPTY &&
+            if (boardState[0][i] != StartOfflineActivity.Cell.EMPTY &&
                 boardState[0][i] == boardState[1][i] && boardState[1][i] == boardState[2][i]
             ) return boardState[0][i]
         }
-        if (boardState[0][0] != AfterStartActivity.Cell.EMPTY &&
+        if (boardState[0][0] != StartOfflineActivity.Cell.EMPTY &&
             boardState[0][0] == boardState[1][1] && boardState[1][1] == boardState[2][2]
         ) return boardState[0][0]
 
-        if (boardState[0][2] != AfterStartActivity.Cell.EMPTY &&
+        if (boardState[0][2] != StartOfflineActivity.Cell.EMPTY &&
             boardState[0][2] == boardState[1][1] && boardState[1][1] == boardState[2][0]
         ) return boardState[0][2]
 
@@ -35,70 +35,70 @@ class TicTacToeEngine {
     }
 
     fun isDraw(): Boolean {
-        if (winner != AfterStartActivity.Cell.EMPTY) return false
-        return board.all { row -> row.all { it != AfterStartActivity.Cell.EMPTY } }
+        if (winner != StartOfflineActivity.Cell.EMPTY) return false
+        return board.all { row -> row.all { it != StartOfflineActivity.Cell.EMPTY } }
     }
 
     fun reset() {
-        for (i in 0..2) for (j in 0..2) board[i][j] = AfterStartActivity.Cell.EMPTY
-        winner = AfterStartActivity.Cell.EMPTY
+        for (i in 0..2) for (j in 0..2) board[i][j] = StartOfflineActivity.Cell.EMPTY
+        winner = StartOfflineActivity.Cell.EMPTY
     }
 
     fun getCpuMove(
-        difficulty: AfterStartActivity.Difficulty,
-        cpuCell: AfterStartActivity.Cell
+        difficulty: StartOfflineActivity.Difficulty,
+        cpuCell: StartOfflineActivity.Cell
     ): Pair<Int, Int>? {
         val opponent =
-            if (cpuCell == AfterStartActivity.Cell.X) AfterStartActivity.Cell.O else AfterStartActivity.Cell.X
+            if (cpuCell == StartOfflineActivity.Cell.X) StartOfflineActivity.Cell.O else StartOfflineActivity.Cell.X
         val emptyCells = mutableListOf<Pair<Int, Int>>()
         for (i in 0..2) for (j in 0..2)
-            if (board[i][j] == AfterStartActivity.Cell.EMPTY) emptyCells.add(i to j)
+            if (board[i][j] == StartOfflineActivity.Cell.EMPTY) emptyCells.add(i to j)
 
         if (emptyCells.isEmpty()) return null
 
         return when (difficulty) {
-            AfterStartActivity.Difficulty.EASY -> emptyCells.random()
+            StartOfflineActivity.Difficulty.EASY -> emptyCells.random()
 
-            AfterStartActivity.Difficulty.MEDIUM -> {
+            StartOfflineActivity.Difficulty.MEDIUM -> {
                 for ((i, j) in emptyCells) {
                     board[i][j] = opponent
                     if (checkWinner(board) == opponent) {
-                        board[i][j] = AfterStartActivity.Cell.EMPTY
+                        board[i][j] = StartOfflineActivity.Cell.EMPTY
                         return i to j
                     }
-                    board[i][j] = AfterStartActivity.Cell.EMPTY
+                    board[i][j] = StartOfflineActivity.Cell.EMPTY
                 }
                 emptyCells.random()
             }
 
-            AfterStartActivity.Difficulty.HARD -> {
+            StartOfflineActivity.Difficulty.HARD -> {
                 for ((i, j) in emptyCells) {
                     board[i][j] = cpuCell
                     if (checkWinner(board) == cpuCell) {
-                        board[i][j] = AfterStartActivity.Cell.EMPTY
+                        board[i][j] = StartOfflineActivity.Cell.EMPTY
                         return i to j
                     }
-                    board[i][j] = AfterStartActivity.Cell.EMPTY
+                    board[i][j] = StartOfflineActivity.Cell.EMPTY
                 }
                 for ((i, j) in emptyCells) {
                     board[i][j] = opponent
                     if (checkWinner(board) == opponent) {
-                        board[i][j] = AfterStartActivity.Cell.EMPTY
+                        board[i][j] = StartOfflineActivity.Cell.EMPTY
                         return i to j
                     }
-                    board[i][j] = AfterStartActivity.Cell.EMPTY
+                    board[i][j] = StartOfflineActivity.Cell.EMPTY
                 }
-                if (board[1][1] == AfterStartActivity.Cell.EMPTY) return 1 to 1
+                if (board[1][1] == StartOfflineActivity.Cell.EMPTY) return 1 to 1
                 emptyCells.random()
             }
 
-            AfterStartActivity.Difficulty.IMPOSSIBLE -> {
+            StartOfflineActivity.Difficulty.IMPOSSIBLE -> {
                 var bestScore = Int.MIN_VALUE
                 var bestMove: Pair<Int, Int>? = null
                 for ((i, j) in emptyCells) {
                     board[i][j] = cpuCell
                     val score = minimax(false, cpuCell, opponent)
-                    board[i][j] = AfterStartActivity.Cell.EMPTY
+                    board[i][j] = StartOfflineActivity.Cell.EMPTY
                     if (score > bestScore) {
                         bestScore = score
                         bestMove = i to j
@@ -111,8 +111,8 @@ class TicTacToeEngine {
 
     private fun minimax(
         isMaximizing: Boolean,
-        cpuCell: AfterStartActivity.Cell,
-        opponent: AfterStartActivity.Cell
+        cpuCell: StartOfflineActivity.Cell,
+        opponent: StartOfflineActivity.Cell
     ): Int {
         val winner = checkWinner()
         if (winner == cpuCell) return 10
@@ -121,14 +121,14 @@ class TicTacToeEngine {
 
         val emptyCells = mutableListOf<Pair<Int, Int>>()
         for (i in 0..2) for (j in 0..2)
-            if (board[i][j] == AfterStartActivity.Cell.EMPTY) emptyCells.add(i to j)
+            if (board[i][j] == StartOfflineActivity.Cell.EMPTY) emptyCells.add(i to j)
 
         return if (isMaximizing) {
             var bestScore = Int.MIN_VALUE
             for ((i, j) in emptyCells) {
                 board[i][j] = cpuCell
                 val score = minimax(false, cpuCell, opponent)
-                board[i][j] = AfterStartActivity.Cell.EMPTY
+                board[i][j] = StartOfflineActivity.Cell.EMPTY
                 bestScore = maxOf(bestScore, score)
             }
             bestScore
@@ -137,7 +137,7 @@ class TicTacToeEngine {
             for ((i, j) in emptyCells) {
                 board[i][j] = opponent
                 val score = minimax(true, cpuCell, opponent)
-                board[i][j] = AfterStartActivity.Cell.EMPTY
+                board[i][j] = StartOfflineActivity.Cell.EMPTY
                 bestScore = minOf(bestScore, score)
             }
             bestScore

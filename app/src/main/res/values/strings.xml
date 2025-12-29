@@ -20,4 +20,6 @@
     <string name="dialog_exit_text_do_you_want_to_exit">Do you want to exit?</string>
     <string name="dialog_exit_text_no">NO</string>
     <string name="dialog_exit_text_yes">YES</string>
+    <string name="game_menu_play_online">Play Online</string>
+    <string name="game_menu_play_offline">play offline</string>
 </resources>

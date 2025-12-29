@@ -11,10 +11,10 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.CheckBox
 import com.alpha.tech.tic.tac.toe.base.BaseActivity
-import com.alpha.tech.tic.tac.toe.databinding.ActivityMainBinding
+import com.alpha.tech.tic.tac.toe.databinding.ActivityGameOfflineBinding
 
-class MainActivity : BaseActivity() {
-    private lateinit var binding: ActivityMainBinding
+class GameOfflineActivity : BaseActivity() {
+    private lateinit var binding: ActivityGameOfflineBinding
 
     private var player1: String = "Player 1"
     private var player2: String = "Player 2"
@@ -29,18 +29,21 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityGameOfflineBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupDifficultySpinner()
         setupCheckBoxes()
         setupEditTexts()
-        eventStartGame()
+        eventClick()
     }
 
-    private fun eventStartGame() {
+    private fun eventClick() {
         binding.btnStart.setOnClickListener {
             startGame()
+        }
+        binding.tvPlayOnline.setOnClickListener {
+            startGameOnline()
         }
     }
 
@@ -231,7 +234,7 @@ class MainActivity : BaseActivity() {
         if (player1.isEmpty()) player1 = "player 1"
 
         val players = arrayOf(player1, player2)
-        val intent = Intent(this, AfterStartActivity::class.java).apply {
+        val intent = Intent(this, StartOfflineActivity::class.java).apply {
             putExtra("easy", easy)
             putExtra("medium", medium)
             putExtra("hard", hard)
@@ -240,6 +243,11 @@ class MainActivity : BaseActivity() {
             putExtra("player1ax", player1ax)
             putExtra("selected_single_player", selectedSinglePlayer)
         }
+        startActivity(intent)
+    }
+
+    fun startGameOnline() {
+        val intent = Intent(this, GameOnlineActivity::class.java)
         startActivity(intent)
     }
 }

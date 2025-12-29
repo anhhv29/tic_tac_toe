@@ -6,13 +6,14 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.lifecycleScope
+import com.alpha.tech.tic.tac.toe.R
 import com.alpha.tech.tic.tac.toe.base.BaseActivity
 import com.alpha.tech.tic.tac.toe.databinding.ActivityAfterStartBinding
 import com.alpha.tech.tic.tac.toe.databinding.DialogLayoutBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class AfterStartActivity : BaseActivity() {
+class StartOfflineActivity : BaseActivity() {
 
     enum class GameMode { PVP, PVE }
     enum class Cell { EMPTY, X, O }
@@ -140,8 +141,8 @@ class AfterStartActivity : BaseActivity() {
         for (i in 0..2) {
             for (j in 0..2) {
                 when (engine.board[i][j]) {
-                    Cell.X -> cells[idx].setImageResource(android.R.drawable.ic_delete)
-                    Cell.O -> cells[idx].setImageResource(android.R.drawable.presence_online)
+                    Cell.X -> cells[idx].setImageResource(R.drawable.ic_tic_tac_toe_x)
+                    Cell.O -> cells[idx].setImageResource(R.drawable.ic_tic_tac_toe_o)
                     Cell.EMPTY -> cells[idx].setImageResource(0)
                 }
                 idx++

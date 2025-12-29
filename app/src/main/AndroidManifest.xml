@@ -11,13 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.GameOfflineActivity"
             android:exported="false" />
         <activity
-            android:name=".view.AfterStartActivity"
+            android:name=".view.StartOfflineActivity"
             android:exported="false" />
         <activity
-            android:name=".view.OpenAppActivity"
+            android:name=".view.GameOnlineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.GameMenuActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

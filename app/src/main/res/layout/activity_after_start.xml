@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".view.AfterStartActivity">
+    tools:context=".view.StartOfflineActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -101,6 +101,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:importantForAccessibility="no"
+                android:padding="15dp"
                 tools:src="@android:drawable/ic_delete" />
 
             <View
@@ -113,6 +114,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:padding="15dp"
                 tools:ignore="ContentDescription"
                 tools:src="@android:drawable/presence_online" />
 
@@ -126,6 +128,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:padding="15dp"
                 tools:ignore="ContentDescription"
                 tools:src="@android:drawable/ic_delete" />
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -146,6 +149,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:padding="15dp"
                 tools:ignore="ContentDescription"
                 tools:src="@android:drawable/ic_delete" />
 
@@ -159,8 +163,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:padding="15dp"
                 tools:ignore="ContentDescription"
-                tools:src="@android:drawable/presence_online" />
+                tools:src="@drawable/ic_tic_tac_toe_o" />
 
             <View
                 android:layout_width="@dimen/line_thickness"
@@ -172,6 +177,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:padding="15dp"
                 tools:ignore="ContentDescription"
                 tools:src="@android:drawable/ic_delete" />
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -192,6 +198,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:padding="15dp"
                 tools:ignore="ContentDescription"
                 tools:src="@android:drawable/presence_online" />
 
@@ -205,8 +212,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:padding="15dp"
                 tools:ignore="ContentDescription"
-                tools:src="@android:drawable/ic_delete" />
+                tools:src="@drawable/ic_tic_tac_toe_x" />
 
             <View
                 android:layout_width="@dimen/line_thickness"
@@ -218,6 +226,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:padding="15dp"
                 tools:ignore="ContentDescription"
                 tools:src="@android:drawable/presence_online" />
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -227,10 +236,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="monospace"
-            tools:text="turn"
             android:layout_margin="12dp"
-            android:textColor="@android:color/holo_green_dark" />
+            android:fontFamily="monospace"
+            android:textColor="@android:color/holo_green_dark"
+            tools:text="turn" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
